@@ -2,14 +2,14 @@ group 'app.mylekha.client.flutter_usb_printer'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.9.0' // Updated Kotlin version
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
-        mavenCentral() // Replaced jcenter with mavenCentral
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0' // Updated AGP version
+        classpath 'com.android.tools.build:gradle:7.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -17,7 +17,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        mavenCentral() // Replaced jcenter with mavenCentral
+        mavenCentral()
     }
 }
 
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'app.mylekha.client.flutter_usb_printer' // Added namespace
+    namespace 'app.mylekha.client.flutter_usb_printer'
     compileSdkVersion 31
 
     sourceSets {
@@ -33,7 +33,16 @@ android {
     }
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 31 // Added targetSdkVersion
+        targetSdkVersion 31
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Set jvmTarget to 1.8
     }
 }
 
